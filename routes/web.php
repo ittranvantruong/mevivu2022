@@ -14,5 +14,14 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('dang-nhap', [HomeController::class, 'login'])->name('login');
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('dang-nhap', [HomeController::class, 'postLogin'])->name('post.login');
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::post('dang-xuat', [HomeController::class, 'logout'])->name('logout');
+});
+
+

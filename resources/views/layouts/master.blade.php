@@ -1,10 +1,10 @@
 @include('layouts.header')
 
+@include('layouts.alert')
+
 @include('layouts.leftsidebar')
 
 @include('layouts.topsidebar')
-
-@include('layouts.header')
 
 @yield('content')
 
