@@ -14,7 +14,7 @@ class DevController extends Controller
 {
     //
     public function index(){
-        $users = User::whereLevel(2)->get();
+        $users = User::whereRole('developer')->get();
         return view('manager.dev.index', compact('users'));
 
     }

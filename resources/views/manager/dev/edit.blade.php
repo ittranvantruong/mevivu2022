@@ -68,7 +68,7 @@
                                         <div class="form-group">
                                             <label class="col-md-12 control-label">*Xác nhận mật khẩu</label>
                                             <div class="col-md-12">
-                                                <input class="form-control" type="password" value="" name="password2"
+                                                <input class="form-control" type="password" value="" name="password_confirmation"
                                                     placeholder="Xác nhận mật khẩu"
                                                     data-parsley-equalto="input[name='password']"
                                                     data-parsley-equalto-message="Mật khẩu không khớp."

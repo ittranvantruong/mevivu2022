@@ -34,8 +34,8 @@
         </a>
         <div id="managerCustomer" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html">Thêm khách hàng</a>
-                <a class="collapse-item" href="cards.html">Danh sách khách hàng</a>
+                <a class="collapse-item" href="{{ route('create.customer') }}">Thêm khách hàng</a>
+                <a class="collapse-item" href="{{ route('index.customer') }}">Danh sách khách hàng</a>
             </div>
         </div>
     </li>

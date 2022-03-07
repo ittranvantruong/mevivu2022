@@ -52,7 +52,7 @@
     <script src="{{ asset('public/sbadmin2/js/sb-admin-2.min.js') }}"></script>
     @stack('plugin-js')
 
-    <script src="{{ asset('public/asset/js/all.js') }}"></script>
+    <script src="{{ asset('public/assets/js/all.js') }}"></script>
 
     @stack('js')
 

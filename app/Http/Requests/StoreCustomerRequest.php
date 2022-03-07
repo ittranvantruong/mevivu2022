@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDevRequest extends FormRequest
+class StoreCustomerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,36 +24,31 @@ class StoreDevRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'max:255', 'email', 'unique:App\Models\User,email'],
+            'api_id' => ['required'],
+            'email' => ['nullable', 'max:255', 'email', 'unique:App\Models\User,email'],
             'fullname' => ['required', 'max:255'],
-            'phone' => ['required', 'regex:/((09|03|07|08|05)+([0-9]{8})\b)/', 'unique:App\Models\User,phone'],
-            'password' => ['required', 'max:255', 'confirmed'],
+            'phone' => ['required', 'unique:App\Models\User,phone'],
         ];
     }
 
     public function attributes(){
         return [
-            'email' => 'Email',
+            'api_id' => 'ID hệ thống',
             'fullname' => 'Họ và tên',
             'phone' => 'Số điện thoại',
-            'password' => 'Mật khẩu',
+            'email' => 'Email',
         ];
     }
 
     public function messages(){
         return [
-            'email.required' => ':attribute không được để trống', 
             'email.max' => ':attribute không được quá 255 ký tự', 
             'email.email' => ':attribute không đúng định dạng', 
             'email.unique' => ':attribute Này đã có người sử dụng', 
             'fullname.required' => ':attribute không được để trống', 
             'fullname.max' => ':attribute không được quá 255 ký tự', 
             'phone.required' => ':attribute không được để trống', 
-            'phone.regex' => ':attribute không đúng định dạng', 
-            'phone.unique' => ':attribute đã có người sử dụng', 
-            'password.required' => ':attribute không được để trống', 
-            'password.max' => ':attribute không được quá 255 ký tự', 
-            'password.confirmed' => ':attribute không trùng khớp', 
+            'phone.unique' => ':attribute đã có người sử dụng'
         ];
     }
 }

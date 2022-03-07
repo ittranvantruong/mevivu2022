@@ -28,8 +28,7 @@ class UpdateDevRequest extends FormRequest
             'fullname' => ['required', 'max:255'],
             'phone' => ['required', 'regex:/((09|03|07|08|05)+([0-9]{8})\b)/', 'unique:App\Models\User,phone,'.$this->id],
             'avatar' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'password' => ['max:255'],
-            'password2' => 'same:password'
+            'password' => ['max:255', 'confirmed'],
         ];
     }
 
@@ -40,7 +39,6 @@ class UpdateDevRequest extends FormRequest
             'phone' => 'Số điện thoại',
             'avatar' => 'Ảnh đại diện',
             'password' => 'Mật khẩu',
-            'password2' => 'Xác nhận mật khẩu'
         ];
     }
 
@@ -58,7 +56,7 @@ class UpdateDevRequest extends FormRequest
             'avatar.mimes' => ':attribute không đúng định dạng',
             'phone.unique' => ':attribute đã có người sử dụng', 
             'password.max' => ':attribute không được quá 255 ký tự', 
-            'password2.same' => ':attribute không trùng khớp', 
+            'password.confirmed' => ':attribute không trùng khớp', 
         ];
     }
 }

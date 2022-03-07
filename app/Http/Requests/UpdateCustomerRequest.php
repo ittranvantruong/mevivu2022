@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\CheckUser;
 
-class StoreDevRequest extends FormRequest
+class UpdateCustomerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,36 +25,34 @@ class StoreDevRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'max:255', 'email', 'unique:App\Models\User,email'],
+            'id' => ['required', new CheckUser],
+            'email' => ['required', 'nullable', 'max:255', 'email', 'unique:App\Models\User,email,'.$this->id],
             'fullname' => ['required', 'max:255'],
-            'phone' => ['required', 'regex:/((09|03|07|08|05)+([0-9]{8})\b)/', 'unique:App\Models\User,phone'],
-            'password' => ['required', 'max:255', 'confirmed'],
+            'address' => ['required'],
+            'password' => ['max:255', 'confirmed']
         ];
     }
 
     public function attributes(){
         return [
-            'email' => 'Email',
+            'id' => 'Mã người dùng',
             'fullname' => 'Họ và tên',
-            'phone' => 'Số điện thoại',
             'password' => 'Mật khẩu',
+            'email' => 'Email',
         ];
     }
 
     public function messages(){
         return [
+            'id.required' => 'Vui lòng nhập :attribute',
             'email.required' => ':attribute không được để trống', 
             'email.max' => ':attribute không được quá 255 ký tự', 
             'email.email' => ':attribute không đúng định dạng', 
             'email.unique' => ':attribute Này đã có người sử dụng', 
             'fullname.required' => ':attribute không được để trống', 
             'fullname.max' => ':attribute không được quá 255 ký tự', 
-            'phone.required' => ':attribute không được để trống', 
-            'phone.regex' => ':attribute không đúng định dạng', 
-            'phone.unique' => ':attribute đã có người sử dụng', 
             'password.required' => ':attribute không được để trống', 
-            'password.max' => ':attribute không được quá 255 ký tự', 
-            'password.confirmed' => ':attribute không trùng khớp', 
+            'password.confirmed' => ':attribute không trùng khớp'
         ];
     }
 }

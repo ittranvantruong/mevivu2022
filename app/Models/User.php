@@ -28,7 +28,8 @@ class User extends Authenticatable
         'api_id',
         'quantri_id',
         'addedby',
-        'avatar'
+        'avatar',
+        'address'
     ];
 
     /**

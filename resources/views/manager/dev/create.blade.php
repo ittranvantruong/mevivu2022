@@ -50,7 +50,7 @@
                                 <div class="form-group">
                                     <label class="col-md-12 control-label">*Xác nhận mật khẩu</label>
                                     <div class="col-md-12">
-                                        <input class="form-control" type="password" value="" name="password2" placeholder="Xác nhận mật khẩu" required data-parsley-equalto="input[name='password']" data-parsley-equalto-message="Mật khẩu không khớp."
+                                        <input class="form-control" type="password" value="" name="password_confirmation" placeholder="Xác nhận mật khẩu" required data-parsley-equalto="input[name='password']" data-parsley-equalto-message="Mật khẩu không khớp."
                                             data-parsley-required-message="Trường này không được bỏ trống.">
                                     </div>
                                 </div>

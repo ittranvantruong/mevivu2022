@@ -21,3 +21,35 @@ function customDatatable(element = '#tableDatatable', options = []) {
         }
     });
 }
+function startAjax(element){
+    element = element.find('button[type="submit"]');
+    element.attr('disabled', 'disabled');
+    element.html('<span class="spinner-grow spinner-grow-sm"></span> Đang xử lý..');
+}
+
+function endAjax(element, text){
+
+    element = element.find('button[type="submit"]');
+    element.removeAttr('disabled');
+    element.html(text);
+    
+    // $('.select2-selection__rendered').empty();
+}
+
+$(document).ready(function () {
+    $("form").submit(function(){
+        // $(this).find("button[type='submit']").attr("disabled", "disabled");
+        startAjax($(this));
+    });
+
+    $("button.submit-form").click(function(){
+        if(!confirm("Bạn có muốn thực hiện?")){
+            return;
+        }
+        $($(this).data('target')).submit();
+    });
+
+});
+$(document).on('click', '.open-modal', function () {
+    $($(this).data('target')).modal("show");
+});
