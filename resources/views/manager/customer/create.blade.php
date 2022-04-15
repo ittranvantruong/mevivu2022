@@ -11,7 +11,7 @@
         <div class="col-md-5 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-center">Thêm khách hàng</h3>
+                    <h3 class="text-center">Kiểm tra khách hàng</h3>
                 </div>
                 <div class="card-body">
                     <form id="formCheckInfoCustomer" class="form-horizontal" data-modal="#checkInfoModal"
@@ -23,7 +23,7 @@
                                 data-parsley-required-message="Trường này không được bỏ trống.">
                         </div>
                         <div class="form-group">
-                            <label class="control-label">*Mật khậu:</label>
+                            <label class="control-label">*Mật khẩu:</label>
                             <input class="form-control" type="password" name="password" value=""
                                 placeholder="Mật khẩu" required
                                 data-parsley-required-message="Trường này không được bỏ trống.">
@@ -78,6 +78,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @push('js')

@@ -34,6 +34,23 @@ class CustomerController extends Controller
         $user = User::create($data);
         return redirect()->route('edit.customer', $user->id)->with('success', 'Thêm thành công');
     }
+    
+    // public function store(StoreCustomerRequest $request){
+        
+    //     $data = $request->except(['_token', 'password2']);
+    //     $data['password'] = bcrypt($data['password']);
+    //     $data['role'] = 'customer';
+    //     $data['addedby'] = auth()->user()->id;
+
+    //     $user = User::create($data);
+        
+    //     Log::info('Admin ID: '.$data['addedby'].' Thêm mới dev #'.$user->id, ['data' => $request->all()]);
+
+    //     if($user){
+    //         return redirect()->route('edit.customer', $user->id)->with('success', 'Thêm khách hàng thành công');
+    //     }
+    //     return back()->with('error', 'Thêm khách hàng không thành công');
+    // }
 
     public function edit(User $user){
         return view('manager.customer.edit', compact('user'));

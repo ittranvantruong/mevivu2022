@@ -22,7 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'fullname',
-        'level',
+        'role',
         'status',
         'phone',
         'api_id',

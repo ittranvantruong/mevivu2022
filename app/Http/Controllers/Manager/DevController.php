@@ -26,7 +26,7 @@ class DevController extends Controller
         
         $data = $request->except(['_token', 'password2']);
         $data['password'] = bcrypt($data['password']);
-        $data['level'] = 2;
+        $data['role'] = 'developer';
         $data['addedby'] = auth()->user()->id;
 
         $user = User::create($data);
@@ -76,5 +76,9 @@ class DevController extends Controller
         return back()->with('error', 'Cập nhật kỹ thuật viên không thành công');
     }
 
-
+    public function delete($id)
+    {
+        User::where('id',$id)->delete();
+        return redirect()->route('index.dev');
+    }
 }

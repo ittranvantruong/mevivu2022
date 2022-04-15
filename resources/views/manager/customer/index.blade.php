@@ -37,7 +37,7 @@
                           <td>{{$item->fullname}}</td>
                           <td>{{$item->email}}</td>
                           <td>{{$item->phone}}</td>
-                            <td><a href="{{ route('edit.customer', $item->id) }}" class="btn btn-info btn-icon-split btn-sm">
+                            <td><a href="{{ route('edit.customer', $item->api_id) }}" class="btn btn-info btn-icon-split btn-sm">
                                 <span class="icon text-white-50">
                                   <i class="fas fa-info-circle"></i>
                                 </span>

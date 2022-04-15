@@ -105,11 +105,9 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="form-group text-right">
-                            <button type="submit" class="btn btn-primary">Lưu lại
-                                </button>
+                            <a href="{{ route('delete.dev',$user->id) }}" class="btn btn-danger">Xóa</a>
+                            <button type="submit" class="btn btn-primary">Lưu lại </button>
                         </div>
                     </form>
                 </div>

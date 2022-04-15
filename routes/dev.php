@@ -11,7 +11,7 @@ Route::group(['prefix' => 'khach-hang', 'middleware' => ['auth', 'developer.role
 
     Route::get('kiem-tra-thong-tin', [CustomerController::class, 'checkInfo'])->name('check.info.customer');
 
-    Route::get('sua/{user:id}', [CustomerController::class, 'edit'])->name('edit.customer');
+    Route::get('sua/{user:api_id}', [CustomerController::class, 'edit'])->name('edit.customer');
 
     Route::post('them', [CustomerController::class, 'store'])->name('store.customer');  
 
